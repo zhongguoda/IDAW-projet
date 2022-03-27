@@ -1,14 +1,10 @@
-<head>
-<link href="css/min.css" rel="stylesheet">
-<link href="css/signin.css" rel="stylesheet">
-</head>
 <?php
 $title = "Inscription";
-session_start();
-session_unset();
-session_destroy();
 require_once('template_header.php');
 ?>
+<head>
+  <link href="css/signin.css" rel="stylesheet">
+</head>
 <body class="text-center">
     <form class="form-signin" action="../backend/addUser.php" method="POST">
         <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
@@ -25,7 +21,7 @@ require_once('template_header.php');
             <label>Femme</label>
         </div>
         <div>
-            <label>Genre : </label>
+            <label>Niveau de pratique sportive : </label><br>
             <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="1"checked>
             <label>Bas</label>
             <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="2">

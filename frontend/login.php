@@ -1,7 +1,3 @@
-<head>
-<link href="css/min.css" rel="stylesheet">
-<link href="css/signin.css" rel="stylesheet">
-</head>
 <?php
 $title = "Connexion";
 session_start();
@@ -9,6 +5,9 @@ session_unset();
 session_destroy();
 require_once('template_header.php');
 ?>
+<head>
+  <link href="css/signin.css" rel="stylesheet">
+</head>
 <body class="text-center">
     <form class="form-signin" action="../backend/connected.php" method="POST">
       <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
