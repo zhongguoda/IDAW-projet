@@ -38,7 +38,7 @@ if (isset($_SESSION["MAIL"])  && isset($_SESSION["MOT_DE_PASSE"])){
         header('Location: ../frontend/login.php');
 if(!$successfullyLogged) {
     echo '<script type="text/javascript">'; 
-    echo 'alert("Erreur de login/password !");'; 
+    echo 'alert("Erreur d\'identifiant/mot de passe !");'; 
     echo 'window.location.href = "../frontend/login.php";';
     echo '</script>';
 } else {
@@ -48,6 +48,9 @@ $_SESSION["MAIL"]=$tryLogin;
 $_SESSION["MOT_DE_PASSE"]=$tryPwd;
 $_SESSION["NOM"]=$result["NOM"];
 $_SESSION["PRENOM"]=$result["PRENOM"];
+$_SESSION["AGE"]=$result["AGE"];
+$_SESSION["ID_SEXE"]=$result["ID_SEXE"];
+$_SESSION["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"]=$result["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"];
 header('Location: ../frontend/index.php');
 }
 
