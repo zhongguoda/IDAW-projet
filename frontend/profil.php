@@ -17,18 +17,18 @@ require_once('template_menu.php');
         <br>
         <div>
             <label>Genre : </label>
-            <input type="radio" id="inputSexe" name="ID_SEXE" value="1" <?php if ($_SESSION["ID_SEXE"]=="1") echo "checked"; ?>>
+            <input type="radio" id="inputSexe1" name="ID_SEXE" value="1" <?php if ($_SESSION["ID_SEXE"]=="1") echo "checked"; ?>>
             <label>Homme</label>
-            <input type="radio" id="inputSexe" name="ID_SEXE" value="2" <?php if ($_SESSION["ID_SEXE"]=="2") echo "checked"; ?>>
+            <input type="radio" id="inputSexe2" name="ID_SEXE" value="2" <?php if ($_SESSION["ID_SEXE"]=="2") echo "checked"; ?>>
             <label>Femme</label>
         </div>
         <div>
             <label>Niveau de pratique sportive : </label>
-            <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="1" <?php if ($_SESSION["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"]=="1") echo "checked"; ?>>
+            <input type="radio" id="inputNPSportive1" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="1" <?php if ($_SESSION["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"]=="1") echo "checked"; ?>>
             <label>Bas</label>
-            <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="2" <?php if ($_SESSION["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"]=="2") echo "checked"; ?>>
+            <input type="radio" id="inputNPSportive2" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="2" <?php if ($_SESSION["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"]=="2") echo "checked"; ?>>
             <label>Moyen</label>
-            <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="3" <?php if ($_SESSION["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"]=="3") echo "checked"; ?>>
+            <input type="radio" id="inputNPSportive3" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="3" <?php if ($_SESSION["ID_NIVEAU_DE_PRATIQUE_SPORTIVE"]=="3") echo "checked"; ?>>
             <label>Élevé</label>
         </div>
         <input type="email" id="inputEmail" class="form-control" placeholder="Adresse Mail" value=<?php echo $_SESSION["MAIL"]; ?> name="MAIL" required>

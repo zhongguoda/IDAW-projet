@@ -23,7 +23,6 @@ if (isset($_POST['MAIL']) && isset($_POST['MOT_DE_PASSE'])){
             'MAIL'  => $_POST['MAIL'],
             'MOT_DE_PASSE'  => $_POST['MOT_DE_PASSE']
         );
-        echo $list["MOT_DE_PASSE"];
         $sql = "INSERT INTO utilisateur (`MOT_DE_PASSE`, `AGE`, `MAIL`, `ID_NIVEAU_DE_PRATIQUE_SPORTIVE`, `ID_SEXE`, `NOM`, `PRENOM`) VALUES ('".$list['MOT_DE_PASSE']."', '".$list['AGE']."', '".$list['MAIL']."', '".$list['ID_NIVEAU_DE_PRATIQUE_SPORTIVE']."', '".$list['ID_SEXE']."', '".$list['NOM']."', '".$list['PRENOM']."')";
         if ($conn->query($sql) === TRUE) {
             echo '<script type="text/javascript">'; 

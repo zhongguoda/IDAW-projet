@@ -15,18 +15,18 @@ require_once('template_header.php');
         <br>
         <div>
             <label>Genre : </label>
-            <input type="radio" id="inputSexe" name="ID_SEXE" value="1"checked>
+            <input type="radio" id="inputSexe1" name="ID_SEXE" value="1"checked>
             <label>Homme</label>
-            <input type="radio" id="inputSexe" name="ID_SEXE" value="2">
+            <input type="radio" id="inputSexe2" name="ID_SEXE" value="2">
             <label>Femme</label>
         </div>
         <div>
             <label>Niveau de pratique sportive : </label><br>
-            <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="1"checked>
+            <input type="radio" id="inputNPSportive1" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="1"checked>
             <label>Bas</label>
-            <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="2">
+            <input type="radio" id="inputNPSportive2" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="2">
             <label>Moyen</label>
-            <input type="radio" id="inputNPSportive" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="3">
+            <input type="radio" id="inputNPSportive3" name="ID_NIVEAU_DE_PRATIQUE_SPORTIVE" value="3">
             <label>Élevé</label>
         </div>
         <input type="email" id="inputEmail" class="form-control" placeholder="Adresse Mail" name="MAIL" required>
