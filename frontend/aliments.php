@@ -63,22 +63,6 @@ require_once('template_menu.php');
 
 var list = new Array();
 var arr = [];
-function displayTab() {
-    $("#studentsTableBody tr").remove();
-    list.forEach(function (ID_ALIMENT, i) {
-        $("#studentsTableBody").append(
-        `<tr id="row${i}">
-                        <td id="ID_ALIMENT${i}">${list[i].ID_ALIMENT}</td>
-                        <td id="NOM${i}">${list[i].NOM}</td>
-                        <td id="ID_TYPE_ALIMENT${i}">${list[i].ID_TYPE_ALIMENT}</td>
-                        <td>
-                            <button class="edit btn btn-sm btn-outline-success" onclick="updateRow(${list[i].ID_ALIMENT}, ${i})">Update</button>
-                            <button class="delete btn btn-sm btn-outline-danger" onclick="deleteRow(this, ${list[i].ID_ALIMENT})">Delete</button>
-                        </td>
-                    </tr>`
-        );
-    });
-}
 
 function getData() {
   $.ajax({
@@ -96,10 +80,8 @@ function getData() {
             { title: "Référence" },
             { title: "Aliment" },
             { title: "Type d'aliment" }
-            //{ title: "Option" }
         ]
     } );
-      //displayTab();
     })
     .catch(function (error) {
       console.log(error);
@@ -163,7 +145,7 @@ function getData() {
         <form class="form-signin" action="../backend/editAliment.php" method="POST">
         <h2 style="text-align:center;">Modifier un aliment</h2>
         <input type="text" id="inputFName" class="form-control" placeholder="Référence de l'aliment à modifier" name="ID_ALIMENT" required autofocus><br>
-        <h3 style="text-align:center;">(Laisser vide les champs que vous ne souhaitez pas modifier !)</h3>
+        <h6 style="text-align:center;">(Laisser vide les champs que vous ne souhaitez pas modifier !)</h6>
         <input type="text" id="inputFName" class="form-control" placeholder="Nom de l'aliment" name="NOM" required autofocus>
         <br><label>Type d'aliment : </label>
         <select class="form-control" name="ID_TYPE_ALIMENT" id="rec_mode2">
@@ -286,5 +268,4 @@ window.onclick = function(event) {
 
 <?php
 require_once('template_footer.php');
-//header('Location: ../backend/aliments.php');
 ?>

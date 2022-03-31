@@ -3,21 +3,24 @@ $host         = "localhost";
 $username     = "root";
 $password     = "";
 $dbname       = "projet_idaw_prast";
-
+session_start();
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection to database failed: " . $conn->connect_error);
 }
-
-$sql = "SELECT * FROM `type_aliment`";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $array_values[] = $row;
+if (isset($_SESSION["MAIL"]) && isset($_SESSION["MOT_DE_PASSE"])){
+    $sql = "SELECT * FROM `type_aliment`";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $array_values[] = $row;
+        }
+        echo json_encode($array_values);
+    } else {
+        echo json_encode([]);
     }
 } else {
-    echo "0 results";
+    header('Location: ../frontend/index.php');
 }
 
-echo json_encode($array_values);
 $conn->close();

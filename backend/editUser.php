@@ -11,7 +11,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection to database failed: " . $conn->connect_error);
 }
-if (isset($_SESSION['MAIL']) && isset($_SESSION["MOT_DE_PASSE"])) {
+if (isset($_SESSION['MAIL']) && isset($_SESSION["MOT_DE_PASSE"]) && isset($_POST['ANCIEN_MOT_DE_PASSE']) && isset($_POST['NOUVEAU_MOT_DE_PASSE']) && isset($_POST['MAIL'])) {
     $SQL = "SELECT MAIL FROM utilisateur WHERE MAIL = '".$_POST["MAIL"]."'";
     $result = mysqli_query($conn, $SQL);
     if (((mysqli_num_rows($result) == 0 && $_POST["MAIL"] != $_SESSION['MAIL']) || (mysqli_num_rows($result) == 1 && $_POST["MAIL"] == $_SESSION['MAIL'])) && $_POST['ANCIEN_MOT_DE_PASSE'] != $_POST['NOUVEAU_MOT_DE_PASSE'] && $_POST['ANCIEN_MOT_DE_PASSE'] == $_SESSION['MOT_DE_PASSE']) {
