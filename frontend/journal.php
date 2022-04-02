@@ -104,24 +104,23 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/addAliment.php" method="POST">
-        <h2 style="text-align:center;">Ajouter un aliment</h2>
-        <input type="text" id="inputFName" class="form-control" placeholder="Nom de l'aliment" name="NOM" required autofocus>
-        <br><label>Type d'aliment : </label>
-        <select class="form-control" name="ID_TYPE_ALIMENT" id="rec_mode">
+        <form class="form-signin" action="../backend/addRepas.php" method="POST">
+        <h2 style="text-align:center;">Ajouter un repas</h2>
+        <label>Nom de l'aliment : </label>
+        <select class="form-control" name="ID_ALIMENT" id="rec_mode">
         <script>
             $.ajax({
             method: "GET",
-            url: "../backend/getAllAlimentsTypes.php",
+            url: "../backend/getAllAliments.php",
           })
             .done((response) => {
               listType = JSON.parse(response);
               var select = document.getElementById("rec_mode");
               var Types = [];
               var ID_Types = [];
-              listType.forEach(function (ID_TYPE_ALIMENT, i) {
-                Types.push(listType[i].TYPE_ALIMENT);
-                ID_Types.push(listType[i].ID_TYPE_ALIMENT);
+              listType.forEach(function (NOM, i) {
+                Types.push(listType[i].NOM);
+                ID_Types.push(listType[i].ID_ALIMENT);
               });
               for(index in Types) {
                   select.options[select.options.length] = new Option(Types[index], ID_Types[index]);
@@ -132,7 +131,13 @@ function getData() {
             });
           </script>        
         </select><br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter l'aliment...</button>
+        <label>Quantité (en grammes) : </label>
+        <input type="number" id="inputFName" class="form-control" name="QUANTITE" min="0" max="10000" step="1" required>
+        <br>
+        <label>Date à laquelle le repas a été consommé : </label>
+        <input type="date" id="inputFName" class="form-control" <?php echo "value=" . date("Y-m-d"); ?> name="DATE" required>
+        <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Ajouter le repas...</button>
     </form>
     </div>
     </div>
@@ -143,39 +148,41 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/editAliment.php" method="POST">
-        <h2 style="text-align:center;">Modifier un aliment</h2>
-        <input type="text" id="inputFName" class="form-control" placeholder="Référence de l'aliment à modifier" name="ID_ALIMENT" required autofocus><br>
-        <h3 style="text-align:center;">(Laisser vide les champs que vous ne souhaitez pas modifier !)</h3>
-        <input type="text" id="inputFName" class="form-control" placeholder="Nom de l'aliment" name="NOM" required autofocus>
-        <br><label>Type d'aliment : </label>
-        <select class="form-control" name="ID_TYPE_ALIMENT" id="rec_mode2">
+        <form class="form-signin" action="../backend/editRepas.php" method="POST">
+        <h2 style="text-align:center;">Modifier un repas</h2>
+        <input type="text" id="inputFName" class="form-control" placeholder="Référence du repas à modifier" name="ID_REPAS" required autofocus><br>
+        <label>Nom de l'aliment : </label>
+        <select class="form-control" name="ID_ALIMENT" id="rec_mode2">
         <script>
             $.ajax({
             method: "GET",
-            url: "../backend/getAllAlimentsTypes.php",
+            url: "../backend/getAllAliments.php",
           })
             .done((response) => {
-              listTypeM = JSON.parse(response);
+              listType = JSON.parse(response);
               var select = document.getElementById("rec_mode2");
-              var TypesM = [];
-              var ID_TypesM = [];
-              listTypeM.forEach(function (ID_TYPE_ALIMENT, i) {
-                TypesM.push(listTypeM[i].TYPE_ALIMENT);
-                ID_TypesM.push(listTypeM[i].ID_TYPE_ALIMENT);
+              var Types = [];
+              var ID_Types = [];
+              listType.forEach(function (NOM, i) {
+                Types.push(listType[i].NOM);
+                ID_Types.push(listType[i].ID_ALIMENT);
               });
-              select.options[select.options.length] = new Option("PAS DE MODIFICATION", -1);
-              for(index in TypesM) {
-                  select.options[select.options.length] = new Option(TypesM[index], ID_TypesM[index]);
+              for(index in Types) {
+                  select.options[select.options.length] = new Option(Types[index], ID_Types[index]);
               }
             })
             .catch(function (error) {
               console.log(error);
             });
-            
           </script>        
         </select><br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Modifier l'aliment...</button>
+        <label>Quantité (en grammes) : </label>
+        <input type="number" id="inputFName" class="form-control" name="QUANTITE" min="0" max="10000" step="1" required>
+        <br>
+        <label>Date à laquelle le repas a été consommé : </label>
+        <input type="date" id="inputFName" class="form-control" <?php echo "value=" . date("Y-m-d"); ?> name="DATE" required>
+        <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Modifier le repas...</button>
     </form>
     </div>
     </div>
@@ -186,11 +193,11 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/deleteAliment.php" method="POST">
-        <h2 style="text-align:center;">Supprimer un aliment</h2>
-        <input type="text" id="inputFName" class="form-control" placeholder="Référence de l'aliment à supprimer" name="ID_ALIMENT" required autofocus>
+        <form class="form-signin" action="../backend/deleteRepas.php" method="POST">
+        <h2 style="text-align:center;">Supprimer un repas</h2>
+        <input type="text" id="inputFName" class="form-control" placeholder="Référence du repas à supprimer" name="ID_REPAS" required autofocus>
         <br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Supprimer l'aliment...</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Supprimer le repas...</button>
     </form>
     </div>
 

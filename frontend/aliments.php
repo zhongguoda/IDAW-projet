@@ -145,7 +145,6 @@ function getData() {
         <form class="form-signin" action="../backend/editAliment.php" method="POST">
         <h2 style="text-align:center;">Modifier un aliment</h2>
         <input type="text" id="inputFName" class="form-control" placeholder="Référence de l'aliment à modifier" name="ID_ALIMENT" required autofocus><br>
-        <h6 style="text-align:center;">(Laisser vide les champs que vous ne souhaitez pas modifier !)</h6>
         <input type="text" id="inputFName" class="form-control" placeholder="Nom de l'aliment" name="NOM" required autofocus>
         <br><label>Type d'aliment : </label>
         <select class="form-control" name="ID_TYPE_ALIMENT" id="rec_mode2">

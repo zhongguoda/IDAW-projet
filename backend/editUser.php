@@ -5,8 +5,6 @@ $username     = "root";
 $password     = "";
 $dbname       = "projet_idaw_prast";
 
-$table = "utilisateur";
-
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection to database failed: " . $conn->connect_error);
