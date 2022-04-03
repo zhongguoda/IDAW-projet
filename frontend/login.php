@@ -9,7 +9,7 @@ require_once('template_header.php');
   <link href="css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-    <form class="form-signin" action="../backend/connected.php" method="POST">
+    <form class="form-signin" action=<?php echo $url;?>/connected.php" method="POST">
       <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
       <input type="email" id="inputEmail" class="form-control" placeholder="Adresse Mail" name="MAIL" required autofocus>
       <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" name="MOT_DE_PASSE" required>

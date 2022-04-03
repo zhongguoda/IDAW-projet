@@ -1,8 +1,5 @@
 <?php
-$host         = "localhost";
-$username     = "root";
-$password     = "";
-$dbname       = "projet_idaw_prast";
+require_once('config.php');
 session_start();
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {

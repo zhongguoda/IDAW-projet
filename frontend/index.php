@@ -58,7 +58,7 @@ require_once('template_menu.php');
 
 var nb_mes_jours_mesure = ($.ajax({
 method: "GET",
-url: "../backend/getCOUNTMyDate.php",
+url: <?php echo $url;?>/getCOUNTMyDate.php",
 global: false,
 async:false,
 })
@@ -72,7 +72,7 @@ var nb_jours_mesure;
 
 $.ajax({
 method: "GET",
-url: "../backend/getCOUNTDISTINCTDate.php",
+url: <?php echo $url;?>/getCOUNTDISTINCTDate.php",
 global: false,
 async:false,
 })
@@ -90,11 +90,9 @@ async:false,
     nb_jours_mesure = res;
 });
 
-console.log((nb_jours_mesure));
-
 $.ajax({
 method: "GET",
-url: "../backend/getAllRatios.php",
+url: <?php echo $url;?>/getAllRatios.php",
 })
 .done((response) => {
     listType = JSON.parse(response);
@@ -117,7 +115,7 @@ url: "../backend/getAllRatios.php",
 if (document.getElementById("Stats_moi") != null){
     $.ajax({
     method: "GET",
-    url: "../backend/getMyRatios.php",
+    url: <?php echo $url;?>/getMyRatios.php",
     })
     .done((response) => {
         listType = JSON.parse(response);

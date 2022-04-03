@@ -67,7 +67,7 @@ var arr = [];
 function getData() {
   $.ajax({
     method: "GET",
-    url: "../backend/getAllRepas.php",
+    url: <?php echo $url;?>/getAllRepas.php",
   })
     .done((response) => {
       list = JSON.parse(response);
@@ -104,14 +104,14 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/addRepas.php" method="POST">
+        <form class="form-signin" action=<?php echo $url;?>/addRepas.php" method="POST">
         <h2 style="text-align:center;">Ajouter un repas</h2>
         <label>Nom de l'aliment : </label>
         <select class="form-control" name="ID_ALIMENT" id="rec_mode">
         <script>
             $.ajax({
             method: "GET",
-            url: "../backend/getAllAliments.php",
+            url: <?php echo $url;?>/getAllAliments.php",
           })
             .done((response) => {
               listType = JSON.parse(response);
@@ -148,7 +148,7 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/editRepas.php" method="POST">
+        <form class="form-signin" action=<?php echo $url;?>/editRepas.php" method="POST">
         <h2 style="text-align:center;">Modifier un repas</h2>
         <input type="text" id="inputFName" class="form-control" placeholder="Référence du repas à modifier" name="ID_REPAS" required autofocus><br>
         <label>Nom de l'aliment : </label>
@@ -156,7 +156,7 @@ function getData() {
         <script>
             $.ajax({
             method: "GET",
-            url: "../backend/getAllAliments.php",
+            url: <?php echo $url;?>/getAllAliments.php",
           })
             .done((response) => {
               listType = JSON.parse(response);
@@ -193,7 +193,7 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/deleteRepas.php" method="POST">
+        <form class="form-signin" action=<?php echo $url;?>/deleteRepas.php" method="POST">
         <h2 style="text-align:center;">Supprimer un repas</h2>
         <input type="text" id="inputFName" class="form-control" placeholder="Référence du repas à supprimer" name="ID_REPAS" required autofocus>
         <br>

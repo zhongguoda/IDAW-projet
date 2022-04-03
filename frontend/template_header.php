@@ -6,3 +6,6 @@
 media="screen" charset="utf-8" />
 <title><?php echo $title; ?></title>
 </head>
+<?php
+require_once('config.php');
+?>

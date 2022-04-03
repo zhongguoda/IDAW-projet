@@ -9,7 +9,7 @@ require_once('template_menu.php');
 ?>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <div class="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-    <form class="form-signin" action="../backend/editUser.php" method="POST">
+    <form class="form-signin" action=<?php echo $url;?>/editUser.php" method="POST">
 
         <input type="text" id="inputFName" class="form-control" placeholder="Prénom" value=<?php echo $_SESSION["PRENOM"]; ?> name="PRENOM" required autofocus>
         <input type="text" id="inputName" class="form-control" placeholder="Nom" value=<?php echo $_SESSION["NOM"]; ?> name="NOM" required>

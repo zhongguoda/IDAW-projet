@@ -2,6 +2,7 @@
 $title = "Aliments";
 session_start();
 require_once('template_header.php');
+
 if (!(isset($_SESSION["NOM"])  && isset($_SESSION["PRENOM"]))){
     header('Location: login.php');
 }
@@ -67,7 +68,7 @@ var arr = [];
 function getData() {
   $.ajax({
     method: "GET",
-    url: "../backend/getAllAliments.php",
+    url: <?php echo $url;?>/getAllAliments.php",
   })
     .done((response) => {
       list = JSON.parse(response);
@@ -103,7 +104,7 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/addAliment.php" method="POST">
+        <form class="form-signin" action=<?php echo $url;?>/addAliment.php" method="POST">
         <h2 style="text-align:center;">Ajouter un aliment</h2>
         <input type="text" id="inputFName" class="form-control" placeholder="Nom de l'aliment" name="NOM" required autofocus>
         <br><label>Type d'aliment : </label>
@@ -111,7 +112,7 @@ function getData() {
         <script>
             $.ajax({
             method: "GET",
-            url: "../backend/getAllAlimentsTypes.php",
+            url: <?php echo $url;?>/getAllAlimentsTypes.php",
           })
             .done((response) => {
               listType = JSON.parse(response);
@@ -142,7 +143,7 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/editAliment.php" method="POST">
+        <form class="form-signin" action=<?php echo $url;?>/editAliment.php" method="POST">
         <h2 style="text-align:center;">Modifier un aliment</h2>
         <input type="text" id="inputFName" class="form-control" placeholder="Référence de l'aliment à modifier" name="ID_ALIMENT" required autofocus><br>
         <input type="text" id="inputFName" class="form-control" placeholder="Nom de l'aliment" name="NOM" required autofocus>
@@ -151,7 +152,7 @@ function getData() {
         <script>
             $.ajax({
             method: "GET",
-            url: "../backend/getAllAlimentsTypes.php",
+            url: <?php echo $url;?>/getAllAlimentsTypes.php",
           })
             .done((response) => {
               listTypeM = JSON.parse(response);
@@ -184,7 +185,7 @@ function getData() {
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close"></span>
-        <form class="form-signin" action="../backend/deleteAliment.php" method="POST">
+        <form class="form-signin" action=<?php echo $url;?>/deleteAliment.php" method="POST">
         <h2 style="text-align:center;">Supprimer un aliment</h2>
         <input type="text" id="inputFName" class="form-control" placeholder="Référence de l'aliment à supprimer" name="ID_ALIMENT" required autofocus>
         <br>

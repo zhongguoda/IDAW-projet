@@ -6,7 +6,7 @@ require_once('template_header.php');
   <link href="css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-    <form class="form-signin" action="../backend/addUser.php" method="POST">
+    <form class="form-signin" action=<?php echo $url;?>/addUser.php" method="POST">
         <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
 
         <input type="text" id="inputFName" class="form-control" placeholder="Prénom" name="PRENOM" required autofocus>

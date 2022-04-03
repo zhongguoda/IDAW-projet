@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projet_idaw_prast";
+require_once('config.php');
 
 $crit_login="MAIL";
 $crit_pwd="MOT_DE_PASSE";
